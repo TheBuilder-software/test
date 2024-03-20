@@ -12,7 +12,7 @@ generate_random_date() {
     SECOND=$(($RANDOM % 60))
 
     # Return the date in the format Git expects
-    printf "202%d-%02d-%02d %02d:%02d:%02d\n" $((3 + $RANDOM % 2)) $MONTH $DAY $HOUR $MINUTE $SECOND
+    printf "202%d-%02d-%02dT%02d:%02d:%02d\n" $((3 + $RANDOM % 2)) $MONTH $DAY $HOUR $MINUTE $SECOND
 }
 
 # Generate the commits
@@ -32,3 +32,6 @@ do
 done
 
 echo "$NUM_COMMITS fake commits with randomized dates between 2023 and 2024 have been created."
+
+# Fake git history
+# GIT_AUTHOR_DATE="2022-10-05T12:00:00" GIT_COMMITTER_DATE="2022-10-05T12:00:00" git commit -am "Your commit message"
